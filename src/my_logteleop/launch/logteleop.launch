@@ -1,0 +1,26 @@
+ <launch>  
+        
+    <node pkg="my_logteleop" type="logteleop" name="logteleop" output="screen">   
+    </node> 
+    <node pkg="myserial" type="my_serial_node" name="my_serial_node" >   
+    </node>
+    <!--input axis -->  
+    <param name="axis_linear" value="4" type="int"/>  
+    <param name="axis_angular" value="0" type="int"/>  
+    <!--input vel -->  
+    <param name="vel_linear" value="2" type="double"/>  
+    <param name="vel_angular" value="1.5" type="double"/>  
+    <node  respawn="true" pkg="joy" type="joy_node" name="joystick" >  
+        
+    </node>  
+   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+    <param name="serial_port"         type="string" value="/dev/ttyUSB1"/>  
+    <param name="serial_baudrate"     type="int"    value="115200"/>
+    <param name="frame_id"            type="string" value="laser"/>
+    <param name="inverted"            type="bool"   value="false"/>
+    <param name="angle_compensate"    type="bool"   value="true"/>
+   </node>
+  <node name="rplidarNodeClient"          pkg="rplidar_ros"  type="rplidarNodeClient"          output="screen">
+  </node>
+          
+ </launch>  

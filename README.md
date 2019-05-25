@@ -6,6 +6,9 @@ This is my first project of auto-mobile , and the fold which is named src includ
 If you want to try running this project, please run the following commands in sequence:
 
 1.$mkdir build && cd build
+
 2.$cmake ../
+
 3.$make 
+
 4.roslaunch my_logitech logtitech
